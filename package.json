@@ -1,0 +1,22 @@
+{
+  "name": "sticky_notes",
+  "version": "1.0.0",
+  "description": "windows sticky notes type application",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hashirkz/sticky_notes.git"
+  },
+  "author": "hashirkz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hashirkz/sticky_notes/issues"
+  },
+  "homepage": "https://github.com/hashirkz/sticky_notes#readme",
+  "devDependencies": {
+    "electron": "^19.0.9"
+  }
+}

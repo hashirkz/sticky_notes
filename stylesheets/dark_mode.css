@@ -1,0 +1,69 @@
+/* css for dark_mode sticky notes */
+
+body, .content{
+    display: flex;
+    box-sizing: border-box;
+    background-color: rgb(24, 24, 24);
+    color:rgb(240, 240, 204);
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.content {
+    position: absolute;
+    top: 20px;
+    overflow-y: auto;
+}
+
+.ribbon-wrapper {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    top: 0px;
+    width: 100%;
+    height: 20px;
+
+    background-color: rgb(255, 92, 92);
+    -webkit-app-region: drag;
+}
+
+#ribbon {
+    -webkit-app-region: no-drag;
+}
+
+#note-stuff{
+    background-color: rgb(24, 24, 24);
+    color: rgb(240, 240, 204);
+    border: none;
+    outline: none;
+
+    height: 100%;
+    width: 100%;
+    position: relative;    
+}
+
+.content::-webkit-scrollbar {
+    width: 10px;
+    height: 5px;
+    background-color: rgb(24, 24, 24)
+}
+
+
+
+.content::-webkit-scrollbar-thumb {
+    background-color: rgb(240, 240, 204);
+    border: 3px solid rgb(24, 24, 24);
+    border-radius: 30px;
+}
+
+.content::-webkit-scrollbar-track:hover {
+    opacity: 0.5;
+}
