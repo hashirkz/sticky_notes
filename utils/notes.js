@@ -1,0 +1,1 @@
+/* a parser to handle functionality of the note taking area in sticky_note.html */
