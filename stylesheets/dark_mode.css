@@ -3,6 +3,8 @@
 body, .content{
     display: flex;
     box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 15px;
     background-color: rgb(24, 24, 24);
     color:rgb(240, 240, 204);
     width: 100vw;
@@ -13,14 +15,16 @@ body, .content{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
+.fill-space {
+    flex: auto;
+}
 .content {
     position: absolute;
     top: 20px;
     overflow-y: auto;
 }
 
-.ribbon-wrapper {
+#ribbon {
     display: flex;
     position: fixed;
     flex-direction: row;
@@ -28,15 +32,59 @@ body, .content{
     justify-content: left;
 
     top: 0px;
-    width: 100%;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100vw;
     height: 20px;
 
     background-color: rgb(255, 92, 92);
     -webkit-app-region: drag;
 }
 
-#ribbon {
+.ribbon-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+
+    width: 40px;
+    height: 20px;
+    transition: background-color 250ms ease-in-out;
+}
+.ribbon-item:hover {
+    background-color: bisque;
     -webkit-app-region: no-drag;
+}
+
+#close:hover {
+    background-color: rgb(248, 31, 31);
+}
+
+.ribbon-item img{
+    -webkit-app-region: no-drag;
+    width: 20px;
+    height: 20px;
+}
+
+#footer{
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    width: 100vw;
+    bottom: 0px;
+    height: 30px;
+}
+
+hr {
+    border: 0;
+    display: flex;
+    width: 80vw;
+    background-color: rgb(240, 240, 204);
+    height: 1px;
 }
 
 #note-stuff{
@@ -44,27 +92,96 @@ body, .content{
     color: rgb(240, 240, 204);
     border: none;
     outline: none;
-
+    margin: 15px;
     height: 100%;
-    width: 100%;
-    position: relative;    
+    width: 90%;
+    position: absolute;  
+    top: 35px;  
 }
 
-.content::-webkit-scrollbar {
+#note-name:focus{
+    outline: none;
+}
+
+.sidebar{
+    width: 30vw;
+    height: 100vh;
+    z-index: 2;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    left: -30vw;
+    top: 20px;
+    background-color:rgb(10, 10, 10);
+    --shift: 0vw;
+
+    transform: translateX(var(--shift));
+    transition: transform 250ms ease-in-out;
+}
+
+/* not sure why this is here */
+.saved-note p {
+    color: bisque;
+    position: relative;
+    font-size: 15px;
+    left: 4px;
+}
+
+ul.saved-notes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    
+    width: 30vw;
+    height: 100vh;
+
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    position: relative;
+
+}
+
+li.saved-note {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    width: 25vw;
+    height: 30px;
+
+    margin: 5px 0px 5px 0px;
+
+    border-radius: 15px;
+
+    transition: background-color 100ms ease-in-out;
+}
+
+li.saved-note:hover {
+    background-color: rgb(24, 24, 24);
+}
+
+
+.content::-webkit-scrollbar, .sidebar::-webkit-scrollbar {
     width: 10px;
     height: 5px;
     background-color: rgb(24, 24, 24)
 }
 
-
-
-.content::-webkit-scrollbar-thumb {
+.content::-webkit-scrollbar-thumb, .sidebar::-webkit-scrollbar {
     background-color: rgb(240, 240, 204);
     border: 3px solid rgb(24, 24, 24);
     border-radius: 30px;
     max-height: 20px;
 }
 
-.content::-webkit-scrollbar-track:hover {
+.content::-webkit-scrollbar-track:hover, .sidebar::-webkit-scrollbar:hover {
     opacity: 0.5;
 }

@@ -10,11 +10,34 @@
 </head>
 <body>
     <div class="content">
-        <div class="ribbon-wrapper">
-            <ul id="ribbon"></ul>
+        <div class="sidebar">
         </div>
 
+        <ul id="ribbon">
+            <li class="ribbon-item" id="home"><img src="./icons/home.png"></li>
+            <li class="ribbon-item" id="save"><img src="./icons/bookmarks.png"></li>
+            <div class="fill-space"></div>
+            <li class="ribbon-item" id="min"><img src="./icons/minimize.png"></li>
+            <li class="ribbon-item" id="max"><img src="./icons/maximize.png"></li>
+            <li class="ribbon-item" id="close"><img src="./icons/close.png"></li>
+        </ul>
+
+
         <textarea autofocus id="note-stuff"></textarea>
+
+
+        <!-- <ul id="footer">
+            <li class="footer-item" id="home"><img src=""></li>
+            <li class="footer-item" id="save"><img src=""></li>
+            <li class="footer-item" id="new"><img src=""></li>
+            <li class="footer-item" id="min"><img src=""></li>
+            <li class="footer-item" id="max"><img src=""></li>
+            <li class="footer-item" id="close"><img src=""></li>
+        </ul> -->
+
     </div>
+    <script src="./utils/ribbon.js" defer></script>
+    <script src="./utils/load_notes.js" defer></script>
+    <script src="./utils/get_note.js" defer></script>
 </body>
 </html>
