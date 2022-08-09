@@ -65,29 +65,31 @@ let load_app = async () => {
     // counting number of notes beforehand
     await notes.set_num_notes();
 
-    // load saved notes to the sticky note window
+    // load saved notes to the sticky note window on launch
     let note_data = await notes.get_notes();
     window.webContents.send('load_saved_notes', note_data);
     
 
-    // note functionality event handlers
+    // note functionality event handlers !need to fix 
     electron.ipcMain.on('save_note', async (event, data) => {
         try {
             let note = new notes(data);
 
             note._name = `note_${notes.num}.txt`;
             await note.save();
+
+            note_data = await notes.get_notes();
+            window.webContents.send('load_saved_notes', note_data);
         }
         catch (err) {
             throw `unable to save note ${err}`;
         }
     });
 
-    // electron.ipcMain.on('load_note', async (event, data) => {
-    //     let text = await notes.read_note(data);
-    //     window.webContents.send(text);
-
-    // });
+    electron.ipcMain.on('load_note_data', async (event, data) => {
+        let text = await notes.read_note(data);
+        window.webContents.send('note_data', text);
+    });
 
 
     // ribbon event handlers 

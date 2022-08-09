@@ -69,9 +69,11 @@ class notes {
         catch (err) { console.log(err); }
     }
 
+    // only use in the app.js file
     static async read_note(num) {
         try{
-            return (await fs.promises.readFile(`note_${num}.txt`, {encoding: 'utf8'})).toString();
+            let note_path = path.join(__dirname, '../', 'saved_notes', `note_${num}.txt`);
+            return (await fs.promises.readFile(note_path, {encoding: 'utf8'})).toString();
         }
         catch (err) { console.log(err); }
 
